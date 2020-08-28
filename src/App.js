@@ -12,7 +12,9 @@ const App = () => {
      <Header />
      <Navbar />
       {/* <Profile /> */}
+      <div className = 'app-wrapper-content'>
       <Dialogs />
+      </div>
     </div>
   );
 }

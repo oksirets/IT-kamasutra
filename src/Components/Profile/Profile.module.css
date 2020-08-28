@@ -1,0 +1,9 @@
+.content {
+    grid-area: c;
+    background-color: rgb(230, 210, 196);
+  
+  }
+  
+  .content div img {
+    max-width: 900px;
+  }

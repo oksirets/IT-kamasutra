@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
@@ -17,7 +16,7 @@ const App = (props) => {
           <Header />
           <Navbar />
           <div className='app-wrapper-content'>
-            <Route path='/Dialogs' render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs} messages={props.state.dialogsPage.messages}/>} />
+            <Route path='/Dialogs' render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs} messages={props.state.dialogsPage.messages} />} />
             <Route path='/Profile' render={() => <Profile posts={props.state.profilePage.posts}/>} />
             <Route path='/News' render={() => <News />} />
             <Route path='/Music' render={() => <Music />} />

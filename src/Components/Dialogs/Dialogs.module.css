@@ -5,15 +5,26 @@
 
 .dialogsItems {
     padding: 10px;
-
 }
 
 .dialogsItems .active {
     color: #e7a477ee;
 }
 
-.dialog {
+.dialog img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
 
+.dialog a {
+    text-decoration: none;
+    padding-left: 7px;
+}
+
+.dialog {
+    display: flex;
+    align-items: center;
 }
 
 .messages {

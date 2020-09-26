@@ -12,7 +12,8 @@ const  Myposts = (props) => {
 
   let addPost = () => {
     let text = textAreaElement.current.value;
-    alert(text);
+    props.addPost(text);
+    textAreaElement.current.value = ' ';
   }
 
     return  <div className = {classes.postsBlock}>

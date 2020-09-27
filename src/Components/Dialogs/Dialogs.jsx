@@ -15,8 +15,8 @@ const Dialogs = (props) => {
   let newDialog = React.createRef();
 
   let addNewDialog = () => {
-    let dialog = newDialog.current.value;
-    props.addDialog(dialog);
+    // let dialog = newDialog.current.value;
+    // props.dispatch({type: 'ADD-DIALOG'});
   };
 
   return (

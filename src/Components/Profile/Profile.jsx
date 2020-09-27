@@ -10,8 +10,7 @@ const Profile = (props) => {
       <Myposts
         posts={props.posts.posts}
         newPostText={props.posts.newPostText}
-        addPost={props.addPost}
-        updateNewPostText={props.updateNewPostText}
+        dispatch={props.dispatch}
       />
     </div>
   );

@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_DIALOG = "ADD-DIALOG";
+const UPDATE_NEW_DIALOG = "UPDATE-NEW-DIALOG";
+
 let store = {
   _state: {
     profilePage: {
@@ -47,7 +52,7 @@ let store = {
         },
       ],
 
-      newMassage: "",
+      newMessage: "",
 
       messages: [
         { id: 1, message: "Hi" },
@@ -69,36 +74,18 @@ let store = {
     this._callSubscriber = observer;
   },
 
-  // addPost(postMessage) {
-  //   let newPost = {
-  //     id: 3,
-  //     message: postMessage,
-  //     likesCount: 0,
-  //   };
-  //   this._state.profilePage.posts.push(newPost);
-  //   this._state.profilePage.newPostText = "";
-  //   this._callSubscriber(this._state);
-  // },
-
-  // updateNewPostText(postText) {
-  //   this._state.profilePage.newPostText = postText;
-  //   this._callSubscriber(this._state);
-  // },
-
-  // addDialog(dialog) {
+  // add() {
   //   let newDialog = {
   //     id: 7,
-  //     name: dialog,
-  //     url:
-  //       "https://lh3.googleusercontent.com/proxy/cARTu0b67jP8eivlpGqkqx2PgVfEy3erEdsZc1iThQrTuLM0f75UdvDWsFPw6_Z6Nn9ISAP4uwJdCTO6om3-CZ7eK2vkeNL0r_8J81ClNg_ndyIH3XpqwjDnAXMA9N5Sno_PguUltgOhqiOzbiE5DCedI2k7q8Gp7g",
+  //     name: this._state.dialogsPage.newMessage,
   //   };
 
-  //   this._state.dialogsPage.dialogs.push(newDialog);
+  //   this._state.dialogsPage.messages.push(newDialog);
   //   this._callSubscriber(this._state);
   // },
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 3,
         message: this._state.profilePage.newPostText,
@@ -106,20 +93,39 @@ let store = {
       };
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText = "";
+
       this._callSubscriber(this._state);
-    } else if (action.type === "ADD-DIALOG") {
+    } else if (action.type === ADD_DIALOG) {
       let newDialog = {
-        id: 7,
-        name: this._state.dialogsPage.newMassage,
+        id: 6,
+        message: this._state.dialogsPage.newMessage,
       };
-      this._state.dialogsPage.dialogs.push(newDialog);
+      this._state.dialogsPage.messages.push(newDialog);
+      this._state.dialogsPage.newMessage = "";
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.postText;
+      this._callSubscriber(this._state);
+    } else if (action.type === UPDATE_NEW_DIALOG) {
+      this._state.dialogsPage.newMessage = action.dialogText;
       this._callSubscriber(this._state);
     }
   },
 };
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const addDialogActionCreator = () => ({ type: ADD_DIALOG });
+
+export const updateNewPostTextActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  postText: text,
+});
+
+export const updateNewDialogActionCreator = (text) => ({
+  type: UPDATE_NEW_DIALOG,
+  dialogText: text,
+});
 
 export default store;
 window.store = store;
